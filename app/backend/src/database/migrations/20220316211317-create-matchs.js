@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Matchs', {
@@ -8,32 +9,34 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.NUMBER
-      },
       homeTeam: {
-        type: Sequelize.NUMBER
+        type: Sequelize.NUMBER,
+        allowNull: false,
+        referemces: {
+          model: 'Club',
+          key: 'id'
+        }
       },
       homeTeamGoals: {
-        type: Sequelize.NUMBER
+        type: Sequelize.NUMBER,
+        allowNull: false
       },
       awayTeam: {
-        type: Sequelize.NUMBER
+        type: Sequelize.NUMBER,
+        allowNull: false,
+        referemces: {
+          model: 'Club',
+          key: 'id'
+        }
       },
       awayTeamGoals: {
-        type: Sequelize.NUMBER
+        type: Sequelize.NUMBER,
+        allowNull: false
       },
       inProgress: {
-        type: Sequelize.NUMBER
+        type: Sequelize.NUMBER,
+        allowNull: false
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {

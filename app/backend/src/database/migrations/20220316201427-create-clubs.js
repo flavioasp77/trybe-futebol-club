@@ -8,11 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.NUMBER
-      },
       clubName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },     
     });
   },
