@@ -1,5 +1,7 @@
 FROM node:16-alpine
 
+EXPOSE 3001
+
 WORKDIR /app
 
 COPY package.json .
