@@ -4,10 +4,15 @@ import Club from './Club';
 
 class Match extends Model {
   public id?: number;
+
   public homeTeam: number;
+
   public homeTeamGoals: number;
+
   public awayTeam: number;
+
   public awayTeamGoals: number;
+  
   public inProgress: number;
 }
 
