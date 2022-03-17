@@ -18,21 +18,28 @@ class Match extends Model {
 Match.init({
   id: {
     type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
   },
   homeTeam: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
   homeTeamGoals: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
   awayTeam: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
   awayTeamGoals: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
   inProgress: {
     type: DataTypes.INTEGER,
+    allowNull: false,
   },
 }, {
   underscored: true,
