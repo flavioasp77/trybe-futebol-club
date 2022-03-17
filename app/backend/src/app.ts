@@ -19,6 +19,7 @@ class App {
     };
 
     this.app.use(accessControl);
+    this.app.post('login');
     // ...
   }
 
