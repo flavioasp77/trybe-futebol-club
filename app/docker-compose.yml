@@ -17,6 +17,8 @@ services:
   backend:
     build: ./backend
     restart: 'unless-stopped'
+    links: 
+      - db
     ports:
       - 3001:3001
     depends_on:
