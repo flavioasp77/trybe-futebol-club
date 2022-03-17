@@ -9,8 +9,12 @@ class Club extends Model {
 }
 
 Club.init({
-  id: DataTypes.INTEGER,
-  clubName: DataTypes.STRING,
+  id: {
+    type: DataTypes.INTEGER,
+  },
+  clubName: {
+    type: DataTypes.STRING,
+  },
 }, {
   // ... Outras configs
   underscored: true,
@@ -18,8 +22,6 @@ Club.init({
   // modelName: 'example',
   timestamps: false,
 });
-
-
 
 /**
   * `Workaround` para aplicar as associations em TS:
