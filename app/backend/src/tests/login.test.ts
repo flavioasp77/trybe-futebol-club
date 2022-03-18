@@ -44,7 +44,13 @@ describe('Ao fazer o login', () => {
     expect(chaiHttpResponse).to.have.status(200);
   });
 
-  // it('Seu sub-teste', () => {
-  //   expect(false).to.be.eq(true);
-  // });
+  it('verifica se usuário digitou um email inválido', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .post('/login')
+      .send({email: 'admin', password: 'secret_admin'});
+
+    expect(chaiHttpResponse.body).to.be.eql('Incorrect email or password');
+    expect(chaiHttpResponse).to.have.status(401);
+  });
 });
