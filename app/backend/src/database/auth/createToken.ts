@@ -1,17 +1,12 @@
 import * as jwt from 'jsonwebtoken';
 import * as fs from 'fs/promises';
-import { IUser } from '../interfaces/userInterfaces';
-import loginService from '../services/loginService';
 
-const createToken = async (email: string, _password: string): Promise<string> => {
-  const user : IUser | null = await loginService.userLogin(email, _password);
-
+const createToken = async (email: string, role: string) => {
   const SECRET = await fs.readFile('jwt.evaluation.key', 'utf-8');
 
   const token: string = jwt.sign(
     {
-      id: user?.id,
-      user: user?.username,
+      role,
       email,
     },
     SECRET,
@@ -20,6 +15,8 @@ const createToken = async (email: string, _password: string): Promise<string> =>
       algorithm: 'HS256',
     },
   );
+
+  console.log(token);
 
   return token as string;
 };

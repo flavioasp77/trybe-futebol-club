@@ -15,7 +15,7 @@ const mockUser = {
   id: 1,
   username: 'flavioasp77',
   role: 'Flávio Pires',
-  email: 'flavioasp77@gmail.com'
+  email: 'admin@admin.com'
 };
 
 describe('Ao fazer o login', () => {
@@ -39,7 +39,7 @@ describe('Ao fazer o login', () => {
     chaiHttpResponse = await chai
        .request(app)
        .post('/login')
-       .send({email: 'flavioasp77@gmail.com', password: '123456'});
+       .send({email: 'admin@admin.com', password: 'secret_admin'});
 
     expect(chaiHttpResponse).to.have.status(200);
   });
