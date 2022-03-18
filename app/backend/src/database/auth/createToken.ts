@@ -16,8 +16,6 @@ const createToken = async (email: string, role: string) => {
     },
   );
 
-  console.log(token);
-
   return token as string;
 };
 

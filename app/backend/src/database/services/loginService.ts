@@ -8,8 +8,6 @@ const userLogin = async (email: string, _password: string) => {
 
   const token = await createToken(email, user.role);
 
-  console.log('Token no Service ===========>', token);
-
   return { user, token };
 };
 
