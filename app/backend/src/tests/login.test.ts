@@ -50,7 +50,17 @@ describe('Ao fazer o login', () => {
       .post('/login')
       .send({email: 'admin', password: 'secret_admin'});
 
-    expect(chaiHttpResponse.body).to.be.eql('Incorrect email or password');
+    expect(chaiHttpResponse.body.message).to.be.equal('Incorrect email or password');
+    expect(chaiHttpResponse).to.have.status(401);
+  });
+
+  it('verifica se usuário digitou uma senha inválida', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .post('/login')
+      .send({email: 'admin@admin.com', password: 'sec'});
+
+    expect(chaiHttpResponse.body.message).to.be.equal('Incorrect email or password');
     expect(chaiHttpResponse).to.have.status(401);
   });
 });
