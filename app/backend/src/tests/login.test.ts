@@ -72,5 +72,15 @@ describe('Ao fazer o login', () => {
 
     expect(chaiHttpResponse.body.message).to.be.equal('All fields must be filled');
     expect(chaiHttpResponse).to.have.status(401);
+
+  });
+  it('verifica se usuário digitou uma senha', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .post('/login')
+      .send({email: 'admin@admin.com'});
+
+    expect(chaiHttpResponse.body.message).to.be.equal('All fields must be filled');
+    expect(chaiHttpResponse).to.have.status(401);
   });
 });
