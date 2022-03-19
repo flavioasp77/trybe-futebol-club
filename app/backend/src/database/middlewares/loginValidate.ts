@@ -5,7 +5,13 @@ const validateEmail = async (req: Request, res: Response, next: NextFunction) =>
   const regexEmail = /\S+@\S+\.\S+/;
   const validEmail = regexEmail.test(email);
 
-  if (!validEmail) return res.status(401).json({ message: 'Incorrect email or password' });
+  if (!email) {
+    return res.status(401).json({ message: 'll fields must be filled' });
+  }
+
+  if (!validEmail) {
+    return res.status(401).json({ message: 'Incorrect email or password' });
+  }
 
   next();
 };
