@@ -10,6 +10,17 @@ const validateEmail = async (req: Request, res: Response, next: NextFunction) =>
   next();
 };
 
+const validatePassword = async (req: Request, res: Response, next: NextFunction) => {
+  const { password } = req.body;
+
+  if (password.length < 7) {
+    return res.status(401).json({ message: 'Incorrect email or password' });
+  }
+
+  next();
+};
+
 export default {
   validateEmail,
+  validatePassword,
 };

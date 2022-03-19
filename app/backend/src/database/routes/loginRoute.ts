@@ -7,6 +7,7 @@ const loginRouter = Router();
 loginRouter.post(
   '/login',
   loginValidate.validateEmail,
+  loginValidate.validatePassword,
   loginController.userLogin,
 );
 
