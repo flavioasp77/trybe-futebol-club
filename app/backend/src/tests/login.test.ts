@@ -58,7 +58,7 @@ describe('Ao fazer o login', () => {
     chaiHttpResponse = await chai
       .request(app)
       .post('/login')
-      .send({email: 'admin@admin.com', password: 'sec'});
+      .send({email: 'admin@admin.com', password: 'secr'});
 
     expect(chaiHttpResponse.body.message).to.be.equal('Incorrect email or password');
     expect(chaiHttpResponse).to.have.status(401);
