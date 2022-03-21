@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as cors from 'cors';
 import loginRouter from './database/routes/loginRoute';
+import matchsRouter from './database/routes/matchsRoute';
 
 class App {
   public app: express.Express;
@@ -30,6 +31,7 @@ class App {
 
   routes(): void {
     this.app.use(loginRouter);
+    this.app.use(matchsRouter);
   }
 
   // ...
