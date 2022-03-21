@@ -2,7 +2,7 @@ import * as sinon from 'sinon';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 import { app } from '../app';
-import Match from '../database/models/Match';
+import Club from '../database/models/Club';
 import { Response } from 'superagent';
 
 chai.use(chaiHttp);
@@ -29,12 +29,12 @@ describe('Ao busca pelos clubs ', async () => {
 
   before(async () => {
     sinon
-      .stub(Match, "findAll")
+      .stub(Club, "findAll")
       .resolves(clubs as []);
   });
 
   after(()=>{
-    (Match.findAll as sinon.SinonStub).restore();
+    (Club.findAll as sinon.SinonStub).restore();
   });
 
   it('retorna status 200 - OK', async () => {
@@ -48,6 +48,6 @@ describe('Ao busca pelos clubs ', async () => {
     chaiHttpResponse = await chai
        .request(app)
        .get('/clubs')
-    expect(chaiHttpResponse.body).to.have.equal(clubs);
+    expect(chaiHttpResponse.body).to.have.length(3);
   });
 });
