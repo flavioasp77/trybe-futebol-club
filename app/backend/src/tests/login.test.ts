@@ -83,4 +83,14 @@ describe('Ao fazer o login', () => {
     expect(chaiHttpResponse.body.message).to.be.equal('All fields must be filled');
     expect(chaiHttpResponse).to.have.status(401);
   });
+
+  it('verifica se existe um token valido', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .post('/login/validate')
+      .send({ authorization: 'dfa78adfad2178a'});
+
+    expect(chaiHttpResponse.body.message).to.be.equal('Invalid Token');
+    expect(chaiHttpResponse).to.have.status(401);
+  });
 });
