@@ -43,4 +43,11 @@ describe('Ao busca pelos clubs ', async () => {
        .get('/clubs')
     expect(chaiHttpResponse).to.have.status(200);
   });
+
+  it('retorna os clubes listatos', async () => {
+    chaiHttpResponse = await chai
+       .request(app)
+       .get('/clubs')
+    expect(chaiHttpResponse.body).to.have.equal(clubs);
+  });
 });
