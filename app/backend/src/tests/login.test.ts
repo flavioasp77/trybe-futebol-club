@@ -88,8 +88,9 @@ describe('Ao fazer o login', () => {
     chaiHttpResponse = await chai
       .request(app)
       .get('/login/validate')
-      .send({ authorization: 157894});
+      .send({ authorization: '' });
 
     expect(chaiHttpResponse).to.have.status(401);
+    expect(chaiHttpResponse.body).to.be.equal('Token Inválido');
   });
 });

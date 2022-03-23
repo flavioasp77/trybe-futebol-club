@@ -1,13 +1,12 @@
 import { Router } from 'express';
-// import validateJWT from '../auth/validateToken';
-import clubService from '../services/clubService';
+import clubController from '../controllers/clubController';
 
 const matchsRouter = Router();
 
 matchsRouter.get(
   '/clubs',
   // validateJWT,
-  clubService.getAll,
+  clubController.getAll,
 );
 
 export default matchsRouter;
