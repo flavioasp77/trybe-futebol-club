@@ -13,4 +13,6 @@ matchsRouter.get(
   clubController.getById,
 );
 
+matchsRouter.get('/matchs');
+
 export default matchsRouter;
