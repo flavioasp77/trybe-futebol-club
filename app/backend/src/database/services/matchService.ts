@@ -16,7 +16,6 @@ const getAll = async () => {
       },
     ],
   });
-  console.log('Math Service =================>', matchs);
   return matchs;
 };
 
