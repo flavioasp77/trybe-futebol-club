@@ -19,6 +19,26 @@ const getAll = async () => {
   return matchs;
 };
 
+const getByQuery = async (query: number) => {
+  const matchs = await Match.findAll({
+    where: { inProgess: query },
+    include: [
+      {
+        model: Club,
+        as: 'homeClub',
+        attributes: ['clubName'],
+      },
+      {
+        model: Club,
+        as: 'awayClub',
+        attributes: ['clubName'],
+      },
+    ],
+  });
+  return matchs;
+};
+
 export default {
   getAll,
+  getByQuery,
 };
