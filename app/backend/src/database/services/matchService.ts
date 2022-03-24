@@ -21,7 +21,7 @@ const getAll = async () => {
 
 const getByQuery = async (query: number) => {
   const matchs = await Match.findAll({
-    where: { inProgess: query },
+    where: { inProgress: query },
     include: [
       {
         model: Club,
