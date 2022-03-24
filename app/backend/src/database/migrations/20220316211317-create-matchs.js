@@ -37,7 +37,7 @@ module.exports = {
         allowNull: false
       },
     }, {
-      underscored: true,
+      underscored: true,      
     });
   },
   down: async (queryInterface, Sequelize) => {

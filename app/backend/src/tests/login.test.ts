@@ -84,13 +84,13 @@ describe('Ao fazer o login', () => {
     expect(chaiHttpResponse).to.have.status(401);
   });
 
-  // it('verifica se existe um token valido', async () => {
-  //   chaiHttpResponse = await chai
-  //     .request(app)
-  //     .get('/login/validate')
-  //     .send({ authorization: '' });
+  it('verifica se existe um token valido', async () => {
+    chaiHttpResponse = await chai
+      .request(app)
+      .get('/login/validate')
+      .send({ authorization: '' });
 
-  //   expect(chaiHttpResponse).to.have.status(401);
-  //   expect(chaiHttpResponse.body).to.be.equal('Token Inválido');
-  // });
+    expect(chaiHttpResponse).to.have.status(401);
+    expect(chaiHttpResponse.body).to.be.equal('Token Inválido');
+  });
 });

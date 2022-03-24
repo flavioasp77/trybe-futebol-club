@@ -45,11 +45,12 @@ Match.init({
 }, {
   underscored: true,
   sequelize: db,
+  tableName: 'matchs',
   timestamps: false,
 });
 
-Match.belongsTo(Club, { foreignKey: 'homeTeam', as: 'homeTeam' });
+Match.belongsTo(Club, { foreignKey: 'homeTeam', as: 'homeClub' });
 
-Match.belongsTo(Club, { foreignKey: 'awayTeam', as: 'awayTeam' });
+Match.belongsTo(Club, { foreignKey: 'awayTeam', as: 'awayClub' });
 
 export default Match;

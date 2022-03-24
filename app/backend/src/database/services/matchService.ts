@@ -2,16 +2,16 @@ import Club from '../models/Club';
 import Match from '../models/Match';
 
 const getAll = async () => {
-  const matchs = Match.findAll({
+  const matchs = await Match.findAll({
     include: [
       {
         model: Club,
-        as: 'homeClube',
+        as: 'homeClub',
         attributes: ['clubName'],
       },
       {
         model: Club,
-        as: 'awayClube',
+        as: 'awayClub',
         attributes: ['clubName'],
       },
     ],
