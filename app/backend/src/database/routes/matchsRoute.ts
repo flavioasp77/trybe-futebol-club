@@ -5,8 +5,12 @@ const matchsRouter = Router();
 
 matchsRouter.get(
   '/clubs',
-  // validateJWT,
   clubController.getAll,
+);
+
+matchsRouter.get(
+  '/clubs/:id',
+  clubController.getById,
 );
 
 export default matchsRouter;

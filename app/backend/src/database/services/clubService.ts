@@ -5,6 +5,12 @@ const getAll = async () => {
   return clubs;
 };
 
+const getById = async (id: number) => {
+  const club = await Club.findByPk(id);
+  return club;
+};
+
 export default {
   getAll,
+  getById,
 };
