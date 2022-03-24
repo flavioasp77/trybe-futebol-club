@@ -40,14 +40,16 @@ describe('Ao busca pelos clubs ', async () => {
   it('retorna status 200 - OK', async () => {
     chaiHttpResponse = await chai
        .request(app)
-       .get('/matchs')
+       .get('/clubs');
+
     expect(chaiHttpResponse).to.have.status(200);
   });
 
   it('retorna os clubes listatos', async () => {
     chaiHttpResponse = await chai
        .request(app)
-       .get('/matchs')
+       .get('/clubs');
+       
     expect(chaiHttpResponse.body).to.have.length(3);
   });
 });

@@ -56,7 +56,7 @@ describe('Ao chamar a rota match', async () => {
   it('retorna status 200 - OK', async () => {
     chaiHttpResponse = await chai
        .request(app)
-       .post('/matchs')
+       .get('/matchs');
 
     expect(chaiHttpResponse).to.have.status(200);
   });

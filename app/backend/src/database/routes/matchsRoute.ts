@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import clubController from '../controllers/clubController';
+import matchController from '../controllers/matchController';
 
 const matchsRouter = Router();
 
@@ -13,6 +14,9 @@ matchsRouter.get(
   clubController.getById,
 );
 
-matchsRouter.get('/matchs');
+matchsRouter.get(
+  '/matchs',
+  matchController.getAll,
+);
 
 export default matchsRouter;
