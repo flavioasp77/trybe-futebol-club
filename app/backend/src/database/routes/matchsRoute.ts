@@ -18,5 +18,9 @@ matchsRouter.get(
   '/matchs',
   matchController.getAll,
 );
+matchsRouter.post(
+  '/matchs',
+  matchController.createMatch,
+);
 
 export default matchsRouter;
