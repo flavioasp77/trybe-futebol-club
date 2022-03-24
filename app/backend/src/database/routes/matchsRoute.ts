@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import clubController from '../controllers/clubController';
 import matchController from '../controllers/matchController';
+import tokenValidate from '../middlewares/tokenValidate';
 
 const matchsRouter = Router();
 
@@ -20,6 +21,7 @@ matchsRouter.get(
 );
 matchsRouter.post(
   '/matchs',
+  tokenValidate,
   matchController.createMatch,
 );
 

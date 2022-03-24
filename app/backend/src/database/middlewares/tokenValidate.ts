@@ -8,8 +8,9 @@ const tokenValidate = async (req: Request, res: Response, next: NextFunction) =>
 
   if (!token || token === '') return res.send('Token Inválido');
 
-  jwt.verify(token, SECRET) as { role: string };
-  next();
+  jwt.verify(token, SECRET);
+
+  return next();
 };
 
 export default tokenValidate;
