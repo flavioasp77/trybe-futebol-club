@@ -34,8 +34,9 @@ const createMatch = async (req: Request, res: Response) => {
   return res.status(201).json(match);
 };
 
-const finishMatch = async (_req: Request, res: Response) => {
-  await matchService.finishMatch();
+const finishMatch = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await matchService.finishMatch(+id);
   return res.status(200);
 };
 

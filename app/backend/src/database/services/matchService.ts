@@ -57,8 +57,17 @@ const createMatch = async ({
   return match;
 };
 
+const finishMatch = async (id: number) => {
+  await Match.update(
+    {
+      inProgress: 0 },
+    { where: { id } },
+  );
+};
+
 export default {
   getAll,
   getByQuery,
   createMatch,
+  finishMatch,
 };
