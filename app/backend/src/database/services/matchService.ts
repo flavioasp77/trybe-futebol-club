@@ -66,9 +66,22 @@ const finishMatch = async (matchId: number) => {
   );
 };
 
+const updateMatch = async (matchId: number, home: number, away: number) => {
+  await Match.update(
+    {
+      homeTeamGoals: home,
+      awayTeamGoals: away,
+    },
+    {
+      where: { id: matchId },
+    },
+  );
+};
+
 export default {
   getAll,
   getByQuery,
   createMatch,
   finishMatch,
+  updateMatch,
 };

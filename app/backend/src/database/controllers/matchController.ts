@@ -42,7 +42,9 @@ const finishMatch = async (req: Request, res: Response) => {
 
 const updateMatch = async (req: Request, res: Response) => {
   const { id } = req.params;
-  await matchService.updateMatch(id);
+  const { homeTeamGoals: home, awayTeamGoals: away } = req.body;
+
+  await matchService.updateMatch(+id, home, away);
 
   return res.status(200).json({ message: 'Match updated!' });
 };
