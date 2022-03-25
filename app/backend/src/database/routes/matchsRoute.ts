@@ -24,6 +24,7 @@ matchsRouter.post(
   '/matchs',
   tokenValidate,
   matchValidate.validateDubbleTeam,
+  matchValidate.validateTeam,
   matchController.createMatch,
 );
 
