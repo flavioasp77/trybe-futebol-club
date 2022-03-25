@@ -34,7 +34,13 @@ const createMatch = async (req: Request, res: Response) => {
   return res.status(201).json(match);
 };
 
+const finishMatch = async (_req: Request, res: Response) => {
+  await matchService.finishMatch();
+  return res.status(200);
+};
+
 export default {
   getAll,
   createMatch,
+  finishMatch,
 };
