@@ -37,7 +37,7 @@ const createMatch = async (req: Request, res: Response) => {
 const finishMatch = async (req: Request, res: Response) => {
   const { id } = req.params;
   await matchService.finishMatch(+id);
-  return res.status(200).json({ messge: 'Partida finalizada!' });
+  return res.status(200).json({ messge: 'Match finished!' });
 };
 
 const updateMatch = async (req: Request, res: Response) => {
