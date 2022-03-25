@@ -40,8 +40,16 @@ const finishMatch = async (req: Request, res: Response) => {
   return res.status(200).json({ messge: 'Partida finalizada!' });
 };
 
+const updateMatch = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await matchService.updateMatch(id);
+
+  return res.status(200).json({ message: 'Match updated!' });
+};
+
 export default {
   getAll,
   createMatch,
   finishMatch,
+  updateMatch,
 };
