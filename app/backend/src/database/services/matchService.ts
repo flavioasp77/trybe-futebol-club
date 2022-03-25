@@ -57,11 +57,12 @@ const createMatch = async ({
   return match;
 };
 
-const finishMatch = async (id: number) => {
+const finishMatch = async (matchId: number) => {
   await Match.update(
     {
-      inProgress: 0 },
-    { where: { id } },
+      inProgress: 0,
+    },
+    { where: { id: matchId } },
   );
 };
 

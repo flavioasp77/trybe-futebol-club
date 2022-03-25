@@ -26,7 +26,7 @@ matchsRouter.post(
 );
 
 matchsRouter.patch(
-  'matchs/:id/finish',
+  '/matchs/:id/finish',
   matchController.finishMatch,
 );
 
