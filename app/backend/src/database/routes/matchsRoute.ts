@@ -37,9 +37,5 @@ matchsRouter.patch(
   '/matchs/:id',
   matchController.updateMatch,
 );
-matchsRouter.patch(
-  '/matchs/:id',
-  matchController.finishMatch,
-);
 
 export default matchsRouter;
