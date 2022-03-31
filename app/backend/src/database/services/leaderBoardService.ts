@@ -5,24 +5,25 @@ import {
   homeDraw,
   homeLoss,
   homeWin,
+  classification,
 } from '../util/functions';
 
 const getHomeLeaderBoard = async () => {
   const { matchs }: any = await matchService.getAll();
   const clubs: any = await clubService.getAll();
 
-  const clubStats = stats(clubs);
+  const leaderBoard = stats(clubs);
 
   matchs.forEach((match: any) => {
     if (!match.inProgress) {
       const score = match.homeTeamGoals - match.awayTeamGoals;
-      if (score === 0) return homeDraw(match, clubStats);
-      if (score < 0) return homeLoss(match, clubStats);
-      return homeWin(match, clubStats);
+      if (score === 0) return homeDraw(match, leaderBoard);
+      if (score < 0) return homeLoss(match, leaderBoard);
+      return homeWin(match, leaderBoard);
     }
   });
 
-  const homeClassification = await classification(clubStats);
+  const homeClassification = await classification(leaderBoard);
 
   return homeClassification;
 };
