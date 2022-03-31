@@ -1,6 +1,11 @@
 import clubService from './clubService';
 import matchService from './matchService';
-import stats from '../util/stats';
+import {
+  stats,
+  homeDraw,
+  homeLoss,
+  homeWin,
+} from '../util/functions';
 
 const getHomeLeaderBoard = async () => {
   const { matchs }: any = await matchService.getAll();
@@ -13,7 +18,7 @@ const getHomeLeaderBoard = async () => {
       const score = match.homeTeamGoals - match.awayTeamGoals;
       if (score === 0) return homeDraw(match, clubStats);
       if (score < 0) return homeLoss(match, clubStats);
-      return homeWin(match,clubStats);
+      return homeWin(match, clubStats);
     }
   });
 
