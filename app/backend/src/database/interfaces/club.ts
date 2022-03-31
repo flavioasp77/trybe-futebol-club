@@ -1,6 +1,6 @@
-interface Clubs {
+interface Club {
   id: number,
-  clubname: string
+  clubName: string
 }
 
-export default Clubs;
+export default Club;
