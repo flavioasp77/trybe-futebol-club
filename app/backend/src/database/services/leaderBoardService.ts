@@ -1,7 +1,7 @@
 import clubService from './clubService';
 import matchService from './matchService';
 import {
-  stats,
+  clubStats,
   homeDraw,
   homeLoss,
   homeWin,
@@ -9,22 +9,22 @@ import {
 } from '../util/functions';
 
 const getHomeLeaderBoard = async () => {
-  const { matchs }: any = await matchService.getAll();
-  const clubs: any = await clubService.getAll();
+  const matchs = await matchService.getAll();
+  const clubs = await clubService.getAll();
 
-  const leaderBoard = stats(clubs);
+  const leaderBoard = clubStats(clubs as []);
 
-  matchs.forEach((match: any) => {
+  matchs.forEach((match) => {
     if (!match.inProgress) {
       const score = match.homeTeamGoals - match.awayTeamGoals;
+      console.log('Score Service =====', score);
       if (score === 0) return homeDraw(match, leaderBoard);
       if (score < 0) return homeLoss(match, leaderBoard);
       return homeWin(match, leaderBoard);
     }
   });
-
-  const homeClassification = await classification(leaderBoard);
-
+  const homeClassification = classification(leaderBoard);
+  console.log('Service =========>', homeClassification);
   return homeClassification;
 };
 

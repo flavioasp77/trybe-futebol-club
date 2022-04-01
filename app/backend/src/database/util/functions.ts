@@ -1,8 +1,8 @@
 import Club from '../interfaces/club';
 import ILeaderBoard from '../interfaces/leaderBoard';
 
-const stats = (clubs: Club[]) => {
-  const leaderBoard: ILeaderBoard [] = [];
+const clubStats = (clubs: Club[]) => {
+  const leaderBoard: ILeaderBoard[] = [];
 
   clubs.forEach((club) => {
     leaderBoard.push({
@@ -33,8 +33,8 @@ const homeDraw = (match: any, leaderBoard: ILeaderBoard[]) => {
       team.goalsFavor += match.homeTeamGoals;
       team.goalsOwn += match.awayTeamGoals;
       team.efficiency = +(
-        (team.totalPoints / (team.totalGames * 3)) * 1000
-      );
+        (team.totalPoints / (team.totalGames * 3)) * 100
+      ).toFixed(2);
     }
   });
 };
@@ -49,8 +49,8 @@ const homeLoss = (match: any, leaderBoard: ILeaderBoard[]) => {
       team.goalsFavor += match.homeTeamGoals;
       team.goalsOwn += match.awayTeamGoals;
       team.efficiency = +(
-        (team.totalPoints / (team.totalGames * 3)) * 1000
-      );
+        (team.totalPoints / (team.totalGames * 3)) * 100
+      ).toFixed(2);
     }
   });
 };
@@ -66,30 +66,30 @@ const homeWin = (match: any, leaderBoard: ILeaderBoard[]) => {
       team.goalsFavor += match.homeTeamGoals;
       team.goalsOwn += match.awayTeamGoals;
       team.efficiency = +(
-        (team.totalPoints / (team.totalGames * 3)) * 1000
-      );
+        (team.totalPoints / (team.totalGames * 3)) * 100
+      ).toFixed(2);
     }
   });
 };
 
-const classification = (leaderBoard: ILeaderBoard[]) => {
+const classification = (leaderBoard: ILeaderBoard[]) =>
   leaderBoard.sort((a, b) => {
-    if (a.totalPoints > b.totalPoints) return 1;
-    if (a.totalPoints < b.totalPoints) return -1;
-    if (a.totalVictories > b.totalVictories) return 1;
-    if (a.totalVictories < b.totalVictories) return -1;
-    if (a.goalsBalance > b.goalsBalance) return 1;
-    if (a.goalsBalance < b.goalsBalance) return -1;
-    if (a.goalsFavor > b.goalsFavor) return 1;
-    if (a.goalsFavor < b.goalsFavor) return -1;
+    if (a.totalPoints > b.totalPoints) return -1;
+    if (a.totalPoints < b.totalPoints) return 1;
+    if (a.totalVictories > b.totalVictories) return -1;
+    if (a.totalVictories < b.totalVictories) return 1;
+    if (a.goalsBalance > b.goalsBalance) return -1;
+    if (a.goalsBalance < b.goalsBalance) return 1;
+    if (a.goalsFavor > b.goalsFavor) return -1;
+    if (a.goalsFavor < b.goalsFavor) return 1;
+    if (a.goalsOwn > b.goalsOwn) return -1;
     if (a.goalsOwn > b.goalsOwn) return 1;
-    if (a.goalsOwn > b.goalsOwn) return 1;
+    console.log('Functions =======>', leaderBoard);
     return 0;
   });
-};
 
 export {
-  stats,
+  clubStats,
   homeDraw,
   homeLoss,
   homeWin,
