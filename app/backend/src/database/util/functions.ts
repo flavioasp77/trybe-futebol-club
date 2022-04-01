@@ -39,6 +39,23 @@ const homeDraw = (match: any, leaderBoard: ILeaderBoard[]) => {
   });
 };
 
+const awayDraw = (match: any, leaderBoard: ILeaderBoard[]) => {
+  leaderBoard.forEach((club) => {
+    const team = club;
+    if (match.homeClub.clubName === club.name) {
+      team.totalGames += 1;
+      team.totalDraws += 1;
+      team.totalPoints += 1;
+      team.goalsBalance += match.awayTeamGoals - match.homeTeamGoals;
+      team.goalsFavor += match.awayTeamGoals;
+      team.goalsOwn += match.homeTeamGoals;
+      team.efficiency = +(
+        (team.totalPoints / (team.totalGames * 3)) * 100
+      ).toFixed(2);
+    }
+  });
+};
+
 const homeLoss = (match: any, leaderBoard: ILeaderBoard[]) => {
   leaderBoard.forEach((club) => {
     const team = club;
@@ -48,6 +65,22 @@ const homeLoss = (match: any, leaderBoard: ILeaderBoard[]) => {
       team.goalsBalance += match.homeTeamGoals - match.awayTeamGoals;
       team.goalsFavor += match.homeTeamGoals;
       team.goalsOwn += match.awayTeamGoals;
+      team.efficiency = +(
+        (team.totalPoints / (team.totalGames * 3)) * 100
+      ).toFixed(2);
+    }
+  });
+};
+
+const awayLoss = (match: any, leaderBoard: ILeaderBoard[]) => {
+  leaderBoard.forEach((club) => {
+    const team = club;
+    if (match.homeClub.clubName === club.name) {
+      team.totalGames += 1;
+      team.totalLosses += 1;
+      team.goalsBalance += match.awayTeamGoals - match.homeTeamGoals;
+      team.goalsFavor += match.awayTeamGoals;
+      team.goalsOwn += match.homeTeamGoals;
       team.efficiency = +(
         (team.totalPoints / (team.totalGames * 3)) * 100
       ).toFixed(2);
@@ -65,6 +98,23 @@ const homeWin = (match: any, leaderBoard: ILeaderBoard[]) => {
       team.goalsBalance += match.homeTeamGoals - match.awayTeamGoals;
       team.goalsFavor += match.homeTeamGoals;
       team.goalsOwn += match.awayTeamGoals;
+      team.efficiency = +(
+        (team.totalPoints / (team.totalGames * 3)) * 100
+      ).toFixed(2);
+    }
+  });
+};
+
+const awayWin = (match: any, leaderBoard: ILeaderBoard[]) => {
+  leaderBoard.forEach((club) => {
+    const team = club;
+    if (match.homeClub.clubName === club.name) {
+      team.totalGames += 1;
+      team.totalVictories += 1;
+      team.totalPoints += 3;
+      team.goalsBalance += match.awayTeamGoals - match.homeTeamGoals;
+      team.goalsFavor += match.awayTeamGoals;
+      team.goalsOwn += match.homeTeamGoals;
       team.efficiency = +(
         (team.totalPoints / (team.totalGames * 3)) * 100
       ).toFixed(2);
@@ -91,7 +141,10 @@ const classification = (leaderBoard: ILeaderBoard[]) =>
 export {
   clubStats,
   homeDraw,
+  awayDraw,
   homeLoss,
+  awayLoss,
   homeWin,
+  awayWin,
   classification,
 };
