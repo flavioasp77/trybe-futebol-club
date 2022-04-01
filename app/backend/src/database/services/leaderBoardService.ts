@@ -43,8 +43,8 @@ const getAwayLeaderBoard = async () => {
       return awayWin(match, leaderBoard);
     }
   });
-  const homeClassification = classification(leaderBoard);
-  return homeClassification;
+  const awayClassification = classification(leaderBoard);
+  return awayClassification;
 };
 
 export default {
