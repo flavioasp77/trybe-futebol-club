@@ -11,7 +11,13 @@ const getAwayLeaderBoard = async (_req: Request, res: Response) => {
   return res.status(200).json(awayClassification);
 };
 
+const getGeralLeaderBoard = async (_req: Request, res: Response) => {
+  const geralClassification = await leaderBoardService.getGeralLeaderBoard();
+  return res.status(200).json(geralClassification);
+};
+
 export default {
   getHomeLeaderBoard,
   getAwayLeaderBoard,
+  getGeralLeaderBoard,
 };
