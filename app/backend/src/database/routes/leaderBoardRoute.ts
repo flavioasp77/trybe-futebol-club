@@ -7,5 +7,9 @@ leaderBoardRouter.get(
   '/leaderboard/home',
   leaderBoardController.getHomeLeaderBoard,
 );
+leaderBoardRouter.get(
+  '/leaderboard/away',
+  leaderBoardController.getAwayLeaderBoard,
+);
 
 export default leaderBoardRouter;

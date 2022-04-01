@@ -42,7 +42,7 @@ const homeDraw = (match: any, leaderBoard: ILeaderBoard[]) => {
 const awayDraw = (match: any, leaderBoard: ILeaderBoard[]) => {
   leaderBoard.forEach((club) => {
     const team = club;
-    if (match.homeClub.clubName === club.name) {
+    if (match.awayClub.clubName === club.name) {
       team.totalGames += 1;
       team.totalDraws += 1;
       team.totalPoints += 1;
@@ -75,7 +75,7 @@ const homeLoss = (match: any, leaderBoard: ILeaderBoard[]) => {
 const awayLoss = (match: any, leaderBoard: ILeaderBoard[]) => {
   leaderBoard.forEach((club) => {
     const team = club;
-    if (match.homeClub.clubName === club.name) {
+    if (match.awayClub.clubName === club.name) {
       team.totalGames += 1;
       team.totalLosses += 1;
       team.goalsBalance += match.awayTeamGoals - match.homeTeamGoals;
@@ -108,7 +108,7 @@ const homeWin = (match: any, leaderBoard: ILeaderBoard[]) => {
 const awayWin = (match: any, leaderBoard: ILeaderBoard[]) => {
   leaderBoard.forEach((club) => {
     const team = club;
-    if (match.homeClub.clubName === club.name) {
+    if (match.awayClub.clubName === club.name) {
       team.totalGames += 1;
       team.totalVictories += 1;
       team.totalPoints += 3;
@@ -134,7 +134,6 @@ const classification = (leaderBoard: ILeaderBoard[]) =>
     if (a.goalsFavor < b.goalsFavor) return 1;
     if (a.goalsOwn > b.goalsOwn) return -1;
     if (a.goalsOwn > b.goalsOwn) return 1;
-    console.log('Functions =======>', leaderBoard);
     return 0;
   });
 

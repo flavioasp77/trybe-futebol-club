@@ -37,7 +37,7 @@ const getAwayLeaderBoard = async () => {
 
   matchs.forEach((match) => {
     if (!match.inProgress) {
-      const score = match.homeTeamGoals - match.awayTeamGoals;
+      const score = match.awayTeamGoals - match.homeTeamGoals;
       if (score === 0) return awayDraw(match, leaderBoard);
       if (score < 0) return awayLoss(match, leaderBoard);
       return awayWin(match, leaderBoard);

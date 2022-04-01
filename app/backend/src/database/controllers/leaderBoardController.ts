@@ -7,7 +7,7 @@ const getHomeLeaderBoard = async (_req: Request, res: Response) => {
 };
 
 const getAwayLeaderBoard = async (_req: Request, res: Response) => {
-  const awayClassification = await leaderBoardService.getHomeLeaderBoard();
+  const awayClassification = await leaderBoardService.getAwayLeaderBoard();
   return res.status(200).json(awayClassification);
 };
 
