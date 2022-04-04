@@ -12,4 +12,9 @@ leaderBoardRouter.get(
   leaderBoardController.getAwayLeaderBoard,
 );
 
+leaderBoardRouter.get(
+  '/leaderboard',
+  leaderBoardController.getGeralLeaderBoard,
+);
+
 export default leaderBoardRouter;
