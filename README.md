@@ -18,7 +18,7 @@ Instale as dependências:
 `npm install`
 
 ### Para rodar o projeto:
-Configure as variaveis de ambiente:
+Configure as variaveis de ambiente de acordo com seu banco de dados local:
 
 No Backend:
 
