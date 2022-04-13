@@ -1,5 +1,5 @@
 #Projeto Trybe Futebol Club
-Neste projeto do curso da Trybe, desenvolvi o Backend para uma aolicação para listar jogos de futebol utilidando `NodeJs`, `TypeScript`, `SEQUELIZE`, `testes`. O `Frontend foi fornecido pela equipe da [Trybe(https://www.betrybe.com/)].
+Neste projeto do curso da Trybe, desenvolvi o Backend para uma aolicação para listar jogos de futebol utilidando `NodeJs`, `TypeScript`, `SEQUELIZE`, `testes`. O `Frontend foi fornecido pela equipe da [Trybe](https://www.betrybe.com/).
 ##Habilidades desenvolvidas:
 <img src="https://github.com/tryber/sd-014-a-trybe-futebol-clube/blob/main/front-example.png?raw=true" />
 - Realizar a dockerização dos apps, network, volume e compose;
