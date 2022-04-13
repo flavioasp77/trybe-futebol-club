@@ -35,3 +35,8 @@ DB_PORT
 No Frontend:
 
 `SKIP_PREFLIGHT_CHECK=true`
+
+Suba o docker com o comando:
+`npm run compose:up`
+
+Ulilize a URL `localhost:3000` no seu navegador.
