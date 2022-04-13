@@ -12,8 +12,6 @@ Neste projeto do curso da Trybe, desenvolvi o Backend para uma aolicação para 
 - Construir uma API REST com endpoints para consumir os models criados;
 - Fazer um CRUD utilizando ORM;
 
-Criei uma tabela para cadastrar os usuários, uma tabela para categorias de posts e uma para guardar as informações dos posts.
-
 ### Instalando Dependências
 
 Instale as dependências:
